@@ -24,7 +24,7 @@
 
   <body>
 
-    <div class="container-fluid">
+    <div id='host-app' class="container-fluid">
       <div class="row-fluid">
 	    <div class='span2'> </div>
         <div class="span2">
@@ -34,7 +34,7 @@
 			<hr>
 			<input type="text" class="span12" placeholder="Name">
 			<input type="text" class="span12" placeholder="Number">
-			<button class="btn-large btn-primary" type="submit">Add</button>
+			<button id='new-party' class="btn-large btn-primary" type="submit">Add</button>
 			
 		  </form>
         </div><!--/span3-->
@@ -52,33 +52,17 @@
 					<th>Wait Remaining</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>Anson</td>
-						<td>3</td>
-						<td>5-10 min</td>
-					</tr>
-					<tr>
-						<td>Matthew</td>
-						<td>10</td>
-						<td>15-20 min</td>
-					</tr>
-					<tr>
-						<td>Peter</td>
-						<td>1</td>
-						<td>2-3 min</td>
-					</tr>
+				<tbody id='party-list'>
 				</tbody>
 			</table>
         </div><!--/span9-->
 		
 		<div class="span2">
           <div class='well'>
-		  <h1>Text</h1>
+		  <h1>Actions</h1>
 		  <button class="btn-large btn-primary" type="submit">Ready</button>
 		  <button class="btn-large btn-primary" type="submit">Update</button>
 		  <hr>
-		  <h1>Action</h1>
 		  <button class="btn-large btn-primary" type="submit">Cancel</button>
 		  <button class="btn-large btn-primary" type="submit">Seat</button>
 		  
@@ -93,10 +77,14 @@
 
     </div><!--/.fluid-container-->
 	
-
+ 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src='underscore.js'></script>
+	<script src='backbone.js'></script>
+	<script src='host.js'></script>
 
   </body>
 </html>
