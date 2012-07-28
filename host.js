@@ -5,6 +5,7 @@ var PartyView = Backbone.View.extend({
 	tagName:'tr',
 	id:'party-view',
 	className:'party',
+	
 	render: function() {
 		var name =this.model.get('name');
 		var size = this.model.get('size');
@@ -21,7 +22,7 @@ var PartyView = Backbone.View.extend({
 var PartyListView = Backbone.View.extend({
 	tagName: 'tbody',
 	el:$('#party-list'),
-	
+
 	initialize: function() {
 		this.collection.on('add', this.addOne, this);
 		this.collection.on('reset', this.addAll, this);
@@ -43,11 +44,11 @@ var PartyListView = Backbone.View.extend({
 
 });
 
-var App = new ( Backbone.Router.extend({
-	el: $("#host-app"),
+var AppView = new (Backbone.View.extend({
+	el: $("#hostapp"),
 	
 	events: {
-      "click #new-party":  "create"
+      "click button":  "newParty"
     },
 	
 	initialize: function(){
@@ -55,8 +56,12 @@ var App = new ( Backbone.Router.extend({
 		this.partyListView = new PartyListView({collection:this.partyList});
 	},
 	
-	create: function(){
-		console.log('hello');
+	newParty: function(e){
+		e.preventDefault();
+		size = $('#size').val();
+		name = $('#name').val();
+		number = $('#number').val();
+		this.partyList.add(new Party({name:name, size:size, number:number}));
 	},
 	
 	test: function() {
@@ -66,12 +71,10 @@ var App = new ( Backbone.Router.extend({
 	addTest: function() {
 		this.partyList.add(new Party({name:"peter", size:1,time:'10-15'		}))
 	}
-
 }));
 
 
 $(function() {
-	
 
 
 });
